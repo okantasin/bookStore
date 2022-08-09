@@ -1,4 +1,4 @@
-package com.bookstore.api.business.dto.books;
+package com.bookstore.api.business.response.categories;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,6 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BookDtoForPush extends BookDtoForPost{
-
+public class CategoryGetOneResponse {
+    private int categoryId;
 }
