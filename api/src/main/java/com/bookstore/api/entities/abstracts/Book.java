@@ -20,5 +20,8 @@ public class Book {
     private String bookName;
     @Column(name="unit_price")
     private double unitPrice;
+    @Column(name="quantity")
+    private int quantity;
+
 
 }
