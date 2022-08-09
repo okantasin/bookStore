@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 
 import java.sql.Timestamp;
 
+
 @Data // Lombok annotation to generate getters and setters
 @SuperBuilder  // Builder pattern: We can use builder pattern to create a new instance of ApiResponse class.
 @AllArgsConstructor // Lombok annotation to generate constructor with all fields
@@ -19,10 +20,11 @@ public class ApiResponse<T> {
 
     // Initialize ApiResponse class with default values
     public ApiResponse() {
-        this.httpStatus = HttpStatus.OK;
-        this.statusCode = 200;
-        this.message = "Success";
-        this.timestamp = new Timestamp(System.currentTimeMillis());
+        super();
+        this.setHttpStatus(HttpStatus.OK);
+        this.setStatusCode(HttpStatus.OK.value());
+        this.setMessage(ResponseMessage.success);
+        this.setTimestamp(ResponseMessage.timestamp);
     }
 
     // Initialize ApiResponse class with custom values
@@ -30,7 +32,6 @@ public class ApiResponse<T> {
         this();
         this.setData(data);
     }
-
 
     //default_OK: It is used by default..
     public static <T> ApiResponse<T> default_OK(T data) {

@@ -4,7 +4,8 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 public class ResponseMessage {
-    private static final Timestamp timestamp = new Timestamp(new Date().getTime());
-    private static final String message = "Success";
-    private static final String fail = "Fail";
+
+    public static  Timestamp timestamp = new Timestamp(new Date().getTime());
+    public static  String success = "Success";
+    public static  String fail = "Fail";
 }
