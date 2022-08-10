@@ -9,7 +9,7 @@ import com.bookstore.api.entities.abstracts.Category;
 import java.util.List;
 
 public interface CategoryService {
-    ApiResponse<List<Book>> getAllCategories();
+    ApiResponse<List<Category>> getAllCategories();
 
     ApiResponse<Category> getOneCategories(int categoryId);
 
