@@ -70,4 +70,14 @@ public class ApiResponse<T> {
         return apiResponse;
 
     }
+
+    public static <T> ApiResponse<T> default_GONE(T data) {
+        ApiResponse<T> apiResponse = new ApiResponse<>(data);
+        apiResponse.setHttpStatus(HttpStatus.GONE);
+        apiResponse.setStatusCode(HttpStatus.GONE.value());
+        apiResponse.setMessage(ResponseMessage.deleted);
+        return apiResponse;
+    }
+
+
 }

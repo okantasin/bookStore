@@ -8,4 +8,5 @@ public class ResponseMessage {
     public static  Timestamp timestamp = new Timestamp(new Date().getTime());
     public static  String success = "Success";
     public static  String fail = "Fail";
+    public static String deleted="Deleted";
 }

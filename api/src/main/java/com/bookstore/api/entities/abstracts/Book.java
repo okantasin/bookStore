@@ -10,18 +10,17 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="books")
+@Table(name = "books")
 public class Book {
     @Id
     @GeneratedValue
-    @Column(name="book_id")
+    @Column(name = "book_id")
     private int bookId;
-    @Column(name="book_name")
-    private String bookName;
-    @Column(name="unit_price")
+    @Column(name = "title")
+    private String title;
+    @Column(name = "unit_price")
     private double unitPrice;
-    @Column(name="quantity")
-    private int quantity;
-
+    @Column(name = "publisher")
+    private String publisher;
 
 }
