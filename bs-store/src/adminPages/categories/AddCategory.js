@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addCategory } from '../../store/actions/categoryActions'
+import {postOneCategory } from '../../store/actions/categoryActions'
 import { TextField } from '@mui/material';
 import { Button, Box, Stack } from '@mui/material';
 import { setMessage } from '../../store/actions/settingActions';
@@ -17,7 +17,7 @@ export default function AddCategory() {
     });
 
     const handleClick = () => {
-        categoryDispatch(addCategory(form));
+        categoryDispatch(postOneCategory(form));
         categoryDispatch(setMessage( "Category added successfully" ));
         navigate("/admin/categories/list");
     }

@@ -1,5 +1,4 @@
-import authorService from '../../services/authorService';
-
+import AuthorService from '../../services/AuthorService'
 export const GET_ALL_AUTHORS = 'GET_ALL_AUTHORS';
 export const GET_ONE_AUTHOR = 'GET_ONE_AUTHOR';
 export const DELETE_ONE_AUTHOR = 'DELETE_ONE_AUTHOR';
@@ -16,7 +15,7 @@ export function getAllAuthors() {
     }
 }
 
-export function getOneAuthor(id){
+export function getOneAuthor(id) {
     return function(dispatch){
         authorService.getOneAuthor(id)
         .then(author=>author.data)
@@ -24,7 +23,14 @@ export function getOneAuthor(id){
     }
 }
 
-export function deleteOneAuthor(id){
+export function postOneAuthor(author) {
+    return function(dispatch){
+        authorService.postOneAuthor(author)
+        .then(author=>author.data)
+        .then(author=>dispatch({type:POST_ONE_AUTHOR, payload:author}))
+    }
+}
+export function deleteOneAuthor(id) {
     return function(dispatch){
         authorService.deleteOneAuthor(id)
         .then(author=>author.data)
@@ -32,17 +38,9 @@ export function deleteOneAuthor(id){
     }
 }
 
-export function postOneAuthor(author){
+export function putOneAuthor(id, author) {
     return function(dispatch){
-        authorService.postOneAuthor(author)
-        .then(author=>author.data)
-        .then(author=>dispatch({type:POST_ONE_AUTHOR, payload:author}))
-    }
-}
-
-export function putOneAuthor(author){
-    return function(dispatch){
-        authorService.putOneAuthor(author)
+        authorService.putOneAuthor(id, author)
         .then(author=>author.data)
         .then(author=>dispatch({type:PUT_ONE_AUTHOR, payload:author}))
     }

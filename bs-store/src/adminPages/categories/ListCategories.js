@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { getAllCategories, deleteCategory } from '../../store/actions/categoryActions';
-
+import { getAllCategories, deleteOneCategory } from '../../store/actions/categoryActions';
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -25,8 +24,10 @@ export default function ListCategories() {
   }
 
   const handleDelete = (id) => {
-    categoryDispatch(deleteCategory(id));
+    categoryDispatch(deleteOneCategory(id));
     categoryDispatch(setMessage("Category deleted successfully" ));
+    navigate("/admin/categories/list");
+    
   }
 
   useEffect(() => {

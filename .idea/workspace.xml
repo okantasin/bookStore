@@ -5,35 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88a9742f-6e08-4054-ae0b-79a0c736d4e8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/bookstore/api/core/config/CorsConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/bookstore/api/api/controllers/AuthorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/bookstore/api/api/controllers/AuthorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/bookstore/api/api/controllers/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/bookstore/api/api/controllers/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/bookstore/api/api/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/bookstore/api/api/controllers/CategoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bs-store/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/bs-store/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bs-store/src/adminPages/authors/ListAuthors.js" beforeDir="false" afterPath="$PROJECT_DIR$/bs-store/src/adminPages/authors/ListAuthors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bs-store/src/adminPages/books/AddBook.js" beforeDir="false" afterPath="$PROJECT_DIR$/bs-store/src/adminPages/books/AddBook.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bs-store/src/adminPages/books/ListBooks.js" beforeDir="false" afterPath="$PROJECT_DIR$/bs-store/src/adminPages/books/ListBooks.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bs-store/src/adminPages/categories/AddCategory.js" beforeDir="false" afterPath="$PROJECT_DIR$/bs-store/src/adminPages/categories/AddCategory.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bs-store/src/adminPages/categories/ListCategories.js" beforeDir="false" afterPath="$PROJECT_DIR$/bs-store/src/adminPages/categories/ListCategories.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bs-store/src/context/AppContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/bs-store/src/context/AppContext.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bs-store/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/bs-store/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bs-store/src/adminPages/categories/UpdateCategory.js" beforeDir="false" afterPath="$PROJECT_DIR$/bs-store/src/adminPages/categories/UpdateCategory.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bs-store/src/services/AuthorService.js" beforeDir="false" afterPath="$PROJECT_DIR$/bs-store/src/services/AuthorService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bs-store/src/services/BookService.js" beforeDir="false" afterPath="$PROJECT_DIR$/bs-store/src/services/BookService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bs-store/src/services/CategoryService.js" beforeDir="false" afterPath="$PROJECT_DIR$/bs-store/src/services/CategoryService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bs-store/src/store/actions/authorAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/bs-store/src/store/actions/authorAction.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bs-store/src/store/actions/bookActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/bs-store/src/store/actions/bookActions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bs-store/src/store/actions/categoryActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/bs-store/src/store/actions/categoryActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bs-store/src/store/actions/settingActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/bs-store/src/store/actions/settingActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bs-store/src/store/initialValues/authorItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/bs-store/src/store/initialValues/authorItems.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bs-store/src/store/initialValues/bookItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/bs-store/src/store/initialValues/bookItems.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bs-store/src/store/initialValues/categotyItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/bs-store/src/store/initialValues/categotyItems.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bs-store/src/store/initialValues/settingItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/bs-store/src/store/initialValues/settingItems.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bs-store/src/store/reducers/authorReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/bs-store/src/store/reducers/authorReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bs-store/src/store/reducers/bookReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/bs-store/src/store/reducers/bookReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bs-store/src/store/reducers/categoryReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/bs-store/src/store/reducers/categoryReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bs-store/src/store/reducers/settingReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/bs-store/src/store/reducers/settingReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bs-store/src/store/rootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/bs-store/src/store/rootReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +61,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -117,7 +106,7 @@
       <updated>1660114186716</updated>
       <workItem from="1660114188323" duration="119000" />
       <workItem from="1660125583762" duration="52000" />
-      <workItem from="1660327926099" duration="1298000" />
+      <workItem from="1660327926099" duration="3535000" />
     </task>
     <servers />
   </component>

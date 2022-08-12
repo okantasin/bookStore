@@ -8,24 +8,24 @@ class CategoryService {
             .then(response => response.data)
             .catch(err => console.error("GET ERROR", err));
     }
-    async getCategoryById(id) {
+    async getOneCategory(id) {
         let url = `${this.baseUrl}/${id}`;
         return await axios.get(url)
             .then(response => response.data)
             .catch(err => console.error("GET ERROR", err));
     }
-    async addCategory(category) {
+    async postOneCategory(category) {
         return await axios.post(this.baseUrl, category)
             .then(response => response.data)
             .catch(err => console.error("POST ERROR", err));
     }
-    async updateCategory(id,category) {
+    async putOneCategory(id,category) {
         let url = `${this.baseUrl}/${id}`;
         return await axios.put(url, category)
             .then(response => response.data)
             .catch(err => console.error("PUT ERROR", err));
     }
-    async deleteCategory(id) {
+    async deleteOneCategory(id) {
         return await axios.delete(`${this.baseUrl}/${id}`)
             .then(response => response.data)
             .catch(err => console.error("DELETE ERROR", err));

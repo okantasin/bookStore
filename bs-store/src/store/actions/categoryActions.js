@@ -1,5 +1,4 @@
-import CategoryService from "../../services/CategoryService"
-
+import CategoryService from "../../services/CategoryService";
 export const GET_ALL_CATEGORIES = 'GET_ALL_CATEGORIES';
 export const GET_ONE_CATEGORY = 'GET_ONE_CATEGORY';
 export const DELETE_ONE_CATEGORY = 'DELETE_ONE_CATEGORY';
@@ -16,33 +15,33 @@ export function getAllCategories() {
     }
 }
 
-export function getCategoryById(id) {
+export function getOneCategory(id) {
     return function (dispatch) {
-        categoryService.getCategoryById(id)
+        categoryService.getOneCategory(id)
             .then(category => category.data)
             .then(category => dispatch({ type: GET_ONE_CATEGORY, payload: category }))
     }
 }
 
 
-export function addCategory(category) {
+export function postOneCategory(category) {
     return function (dispatch) {
-        categoryService.addCategory(category)
+        categoryService.postOneCategory(category)
             .then(category => category.data)
             .then(category => dispatch({ type: POST_ONE_CATEGORY, payload: category }))
     }
 }
-export function deleteCategory(id) {
+export function deleteOneCategory(id) {
     return function (dispatch) {
-        categoryService.deleteCategory(id)
+        categoryService.deleteOneCategory(id)
             .then(category => category.data)
             .then(category => dispatch({ type: DELETE_ONE_CATEGORY, payload: category }))
     }
 }
 
-export function updateCategory(id, category) {
+export function putOneCategory(id, category) {
     return function (dispatch) {
-        categoryService.updateCategory(id, category)
+        categoryService.putOneCategory(id, category)
             .then(category => category.data)
             .then(category => dispatch({ type: PUT_ONE_CATEGORY, payload: category }))
     }

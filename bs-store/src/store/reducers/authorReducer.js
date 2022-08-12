@@ -1,6 +1,6 @@
-import { DELETE_ONE_AUTHOR, GET_ALL_AUTHORS, GET_ONE_AUTHOR, POST_ONE_AUTHOR, PUT_ONE_AUTHOR } from "../actions/authorActions";
-import { author, authors } from "../initialValues/authorItems";
+import { DELETE_ONE_AUTHOR, GET_ALL_AUTHORS, GET_ONE_AUTHOR, POST_ONE_AUTHOR, PUT_ONE_AUTHOR } from "../actions/authorAction";
 
+import {author, authors} from "../initialValues/authorItems"
 const initialState = {
   authors,
   author

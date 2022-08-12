@@ -2,9 +2,10 @@ import React from 'react'
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Button, Grid, Box, Stack, TextField } from "@mui/material";
-import { useNavigate,useParams } from "react-router-dom";
-import { getCategoryById, updateCategory } from "../../store/actions/categoryActions";
+import { useNavigate, useParams } from "react-router-dom";
 import { setMessage } from '../../store/actions/settingActions';
+import { getOneCategory } from '../../store/actions/categoryActions';
+import { putOneCategory } from "../../store/actions/categoryActions"
 export default function UpdateCategory() {
     const categoryDispatch = useDispatch();
     const navigate = useNavigate();
@@ -17,16 +18,16 @@ export default function UpdateCategory() {
         categoryDescription: "",
     });
     useEffect(() => {
-        categoryDispatch(getCategoryById(id));
+        categoryDispatch(getOneCategory(id));
         setForm({
             categoryName: category.categoryName,
             categoryDescription: category.categoryDescription,
         });
-    } , []);
+    }, []);
 
 
     const handleClick = () => {
-        categoryDispatch(updateCategory(id,form));
+        categoryDispatch(putOneCategory(id, form));
         categoryDispatch(setMessage("Category updated successfully"));
         navigate("/admin/categories/list");
     }
