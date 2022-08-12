@@ -22,8 +22,8 @@ public class BookController {
         return bookService.getAllBooks();
     }
 
-    @GetMapping(path="/{bookId}")
-    public ApiResponse<Book> getOneBook(@PathVariable(name = "bookId", required = true) int bookId) {
+    @GetMapping(path="/{id}")
+    public ApiResponse<Book> getOneBook(@PathVariable(name = "id", required = true) int bookId) {
         return bookService.getOneBook(bookId);
     }
 

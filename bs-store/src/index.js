@@ -3,18 +3,23 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import configureStore from "./store/configureStore";
 import { BrowserRouter } from "react-router-dom";
 import { AppContextProvider } from './context/AppContext';
+import { Provider } from 'react-redux';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const store = configureStore();
 root.render(
+  
   <React.StrictMode>
+    <Provider store={store}>
     <AppContextProvider>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </AppContextProvider>
-
+    </Provider>
   </React.StrictMode>
 );
 

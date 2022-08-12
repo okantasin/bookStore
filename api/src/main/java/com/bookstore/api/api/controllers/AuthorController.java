@@ -26,8 +26,8 @@ public class AuthorController {
     }
 
 
-    @GetMapping(path="/{authorId}")
-    public ApiResponse<Author> getOneAuthor(@PathVariable(name = "authorId", required = true) int authorId) {
+    @GetMapping(path="/{id}")
+    public ApiResponse<Author> getOneAuthor(@PathVariable(name = "id", required = true) int authorId) {
         return authorService.getOneAuthor(authorId);
     }
 
