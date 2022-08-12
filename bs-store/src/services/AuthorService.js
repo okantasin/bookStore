@@ -25,4 +25,4 @@ class AuthorService {
         .then(response=>response.data);
     }
 }
-export default AuthorService();
+export default AuthorService;

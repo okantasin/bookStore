@@ -17,35 +17,27 @@ import java.util.List;
 public class BookController {
     private final BookService bookService;
 
-
-
-
-    //********************************GET ALL**************************************************
     @GetMapping
     public ApiResponse<List<Book>> getAllBooks() {
         return bookService.getAllBooks();
     }
 
-    //***************************GET ONE******************************************************
     @GetMapping(path="/{bookId}")
     public ApiResponse<Book> getOneBook(@PathVariable(name = "bookId", required = true) int bookId) {
         return bookService.getOneBook(bookId);
     }
 
-    //******************************* CREATE ***************************************************
     @PostMapping
     public ResponseEntity<?> createBook(@RequestBody BookDtoForPost request) {
        var response = bookService.createBook(request);
         return new ResponseEntity<>(response, response.getHttpStatus());
     }
-    //********************************* DELETE *****************************************************
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteBook(@PathVariable(name="id") int bookId) {
         var response = bookService.deleteBook(bookId);
         return new ResponseEntity<>(response, response.getHttpStatus());
     }
-    //************************************* UPDATE **************************************************
 
     @PutMapping("/{id}")
     public ResponseEntity<?> updateBook(@PathVariable(name="id") int bookId, @RequestBody BookDtoForPut request) {
