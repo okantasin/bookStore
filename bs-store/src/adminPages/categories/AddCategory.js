@@ -6,6 +6,7 @@ import { TextField } from '@mui/material';
 import { Button, Box, Stack } from '@mui/material';
 import { setMessage, showSnackbar } from '../../store/actions/settingActions';
 import {useSelector} from 'react-redux'
+import SimpleFab from '../../components/fab/SimpleFab';
 
 export default function AddCategory() {
     const navigate = useNavigate();
@@ -51,6 +52,7 @@ export default function AddCategory() {
                     Add
                 </Button>
             </Stack>
+            <SimpleFab url="/admin/categories/list" />
         </Box>
     );
 }

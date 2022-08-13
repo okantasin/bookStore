@@ -6,6 +6,7 @@ import { Button, Stack } from "@mui/material";
 import { setMessage, showSnackbar } from '../../store/actions/settingActions';
 import { useSelector } from 'react-redux'
 import { postOneAuthor } from '../../store/actions/authorAction'
+import SimpleFab from '../../components/fab/SimpleFab';
 
 
 export default function AddAuthor() {
@@ -74,6 +75,7 @@ export default function AddAuthor() {
           </Button>
         </Stack>
       </Stack>
+      <SimpleFab url ="/admin/authors/list" />
     </>
 
 

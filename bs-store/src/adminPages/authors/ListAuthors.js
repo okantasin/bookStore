@@ -12,6 +12,8 @@ import AddIcon from '@mui/icons-material/Add'
 import { setMessage, showSnackbar } from '../../store/actions/settingActions'
 import { deleteOneAuthor } from '../../store/actions/authorAction';
 import { getAllAuthors } from '../../store/actions/authorAction';
+import SimpleFab from '../../components/fab/SimpleFab';
+
 
 export default function ListAuthors() {
     const navigate = useNavigate()
@@ -35,14 +37,7 @@ export default function ListAuthors() {
 
     return (
         <>
-            <Fab
-                sx={{ position: "fixed", bottom: 16, right: 16 }}
-                aria-label="Add"
-                onClick={() => navigate("/admin/authors/add")}
-                color="secondary"
-            >
-                <AddIcon />
-            </Fab>
+            <SimpleFab url="/admin/authors/add" />
             <TableContainer>
                 <Table>
                     <TableHead>
