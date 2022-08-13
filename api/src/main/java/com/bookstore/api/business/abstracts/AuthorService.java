@@ -8,6 +8,7 @@ import com.bookstore.api.core.models.ApiResponse;
 import com.bookstore.api.entities.abstracts.Author;
 
 import java.util.List;
+import java.util.Set;
 
 public interface AuthorService {
     ApiResponse<List<Author>> getAllAuthors();
@@ -19,4 +20,6 @@ public interface AuthorService {
     ApiResponse<Author> updateAuthor(int authorId, AuthorDtoForPut request);
 
     ApiResponse<Author> deleteAuthor(int authorId);
+
+    Set<Author> getAuthorsById(List<Integer> authorsIds);
 }

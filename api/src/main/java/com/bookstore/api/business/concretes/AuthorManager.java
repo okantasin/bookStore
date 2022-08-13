@@ -12,7 +12,9 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -55,5 +57,13 @@ public class AuthorManager implements AuthorService {
         Author author = getOneAuthor(authorId).getData();
         authorRepository.deleteById(authorId);
         return ApiResponse.default_GONE(author);
+    }
+
+    @Override
+    public Set<Author> getAuthorsById(List<Integer> authorsIds) {
+        Set<Author> authors = new HashSet<>();
+        authorsIds.forEach(id -> authors.add(getOneAuthor(id).getData()));
+        return authors;
+
     }
 }

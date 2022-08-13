@@ -26,7 +26,7 @@ public class CategoryController {
         return categoryService.getAllCategories();
     }
 
-    @GetMapping(path="/{id}")
+    @GetMapping(path="/{categoryId}")
     public ApiResponse<Category> getOneCategories(@PathVariable(name = "categoryId", required = true) int categoryId) {
         return categoryService.getOneCategories(categoryId);
     }
