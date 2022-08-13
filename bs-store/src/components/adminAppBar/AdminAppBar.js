@@ -14,6 +14,8 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { Link } from "react-router-dom";
 import {useNavigate} from "react-router-dom";
+import AutoStoriesIcon from '@mui/icons-material/AutoStories';
+import ThemeMenu from "../theme/ThemeMenu";
 
 const pages = ["Books", "Categories", "Authors"];
 const paths = [
@@ -64,7 +66,7 @@ const AdminAppbar = () => {
               textDecoration: "none",
             }}
           >
-            BS Store
+            Book Store
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -122,7 +124,7 @@ const AdminAppbar = () => {
               textDecoration: "none",
             }}
           >
-            BS Store
+            Book Store
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page,index) => (
@@ -169,6 +171,7 @@ const AdminAppbar = () => {
               ))}
             </Menu>
           </Box>
+          <ThemeMenu/>
         </Toolbar>
       </Container>
     </AppBar>

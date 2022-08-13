@@ -23,6 +23,8 @@ export function getOneAuthor(id) {
     }
 }
 
+
+
 export function postOneAuthor(author) {
     return function(dispatch){
         authorService.postOneAuthor(author)
@@ -30,6 +32,8 @@ export function postOneAuthor(author) {
         .then(author=>dispatch({type:POST_ONE_AUTHOR, payload:author}))
     }
 }
+
+
 export function deleteOneAuthor(id) {
     return function(dispatch){
         authorService.deleteOneAuthor(id)

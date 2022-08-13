@@ -13,7 +13,7 @@ class AuthorService {
         .then(response=>response.data).catch(err=>console.error("GET ERROR",err));
     }
     async postOneAuthor(author){
-        return await axios.post(this.baseUrl,author)
+        return await axios.post(this.baseUrl, author)
         .then(response=>response.data).catch(err=>console.error("POST ERROR",err));
     }
     async putOneAuthor(author){
