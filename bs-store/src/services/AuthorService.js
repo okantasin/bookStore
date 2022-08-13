@@ -12,10 +12,12 @@ class AuthorService {
         return await axios.get(`${this.baseUrl}/${id}`)
         .then(response=>response.data).catch(err=>console.error("GET ERROR",err));
     }
+   
     async postOneAuthor(author){
-        return await axios.post(this.baseUrl, author)
+        return await axios.post(this.baseUrl,author)
         .then(response=>response.data).catch(err=>console.error("POST ERROR",err));
     }
+
     async putOneAuthor(author){
         return await axios.put(`${this.baseUrl}/${author.id}`,author)
         .then(response=>response.data).catch(err=>console.error("PUT ERROR",err));

@@ -47,8 +47,11 @@ export default function ListAuthors() {
                 <Table>
                     <TableHead>
                         <TableRow>
+                            <TableCell>AuthorId</TableCell>
                             <TableCell>Name</TableCell>
-                            <TableCell>Actions</TableCell>
+                            <TableCell>Surname</TableCell>
+                            <TableCell>Email</TableCell>
+                            <TableCell>Description</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -56,6 +59,7 @@ export default function ListAuthors() {
                             const { authorId, authorName, authorSurname, email, authorDescription } = author;
                             return (
                                 <TableRow key={authorId}>
+                                    <TableCell>{authorId}</TableCell>
                                     <TableCell>{authorName}</TableCell>
                                     <TableCell>{authorSurname}</TableCell>
                                     <TableCell>{email}</TableCell>

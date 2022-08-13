@@ -5,7 +5,6 @@ import authorReducer from "./reducers/authorReducer";
 const rootReducer = combineReducers({
     setting: settingReducer,
     category: categoryReducer,
-    author: authorReducer
-    
+    author:authorReducer
 });
 export default rootReducer;

@@ -35,9 +35,10 @@ public class AuthorManager implements AuthorService {
 
     @Override
     public ApiResponse<Author> createAuthor(AuthorDtoForPost request) {
-        Author author = this.modelMapper.map(request, Author.class);
+        Author author = modelMapper.map(request, Author.class);
         author = this.authorRepository.save(author);
         return ApiResponse.default_CREATED(author);
+
     }
 
     @Override
@@ -53,6 +54,6 @@ public class AuthorManager implements AuthorService {
     public ApiResponse<Author> deleteAuthor(int authorId) {
         Author author = getOneAuthor(authorId).getData();
         authorRepository.deleteById(authorId);
-        return ApiResponse.default_ACCEPTED(author);
+        return ApiResponse.default_GONE(author);
     }
 }

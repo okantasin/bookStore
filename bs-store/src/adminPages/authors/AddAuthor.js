@@ -5,7 +5,7 @@ import { TextField } from '@mui/material';
 import { Button, Stack } from "@mui/material";
 import { setMessage } from '../../store/actions/settingActions';
 import { useSelector } from 'react-redux'
-import {postOneAuthor} from '../../store/actions/authorAction'
+import { postOneAuthor } from '../../store/actions/authorAction'
 
 
 export default function AddAuthor() {
@@ -20,7 +20,7 @@ export default function AddAuthor() {
   });
 
   const handleClick = () => {
-    authorDispatch(postOneAuthor(form));
+    authorDispatch(postOneAuthor(form))
     authorDispatch(setMessage("Author added successfully"));
     navigate("/admin/authors/list");
   }
@@ -37,41 +37,43 @@ export default function AddAuthor() {
 
   return (
     <>
-    <Stack
-      sx={{ m: 3 }}>
-      <Stack spacing={3} >
-        <TextField
-          color='primary'
-          name='authorName'
-          label='Author Name'
-          placeholder='firstname'
-          onChange={handleChange}
-        ></TextField>
+      <Stack
+        sx={{ m: 3 }}>
+        <Stack spacing={3} >
+          <TextField
+            color='primary'
+            name='authorName'
+            label='Author Name'
+            placeholder='author name'
+            onChange={handleChange}
+          ></TextField>
 
-        <TextField
-          name='auhorSurname'
-          label='Author Surname'
-          placeholder='lastname'
-          onChange={handleChange}
-        ></TextField>
+          <TextField
+            color='primary'
+            name='authorSurname'
+            label='Author Surname'
+            placeholder='author surname'
+            onChange={handleChange}
+          ></TextField>
 
-        <TextField
-          name='email'
-          label='Email'
-          placeholder='email'
-          onChange={handleChange}
-        ></TextField>
-        <TextField
-          name='authorDescription'
-          label='Author Description'
-          onChange={handleChange}
-        ></TextField>
+          <TextField
+            name='email'
+            label='Email'
+            placeholder='email'
+            onChange={handleChange}
+          ></TextField>
+          <TextField
+            name='authorDescription'
+            label='Author Description'
+            placeholder='author description'
+            onChange={handleChange}
+          ></TextField>
 
-        <Button color="primary" onClick={handleClick} variant='contained'>
-          Add
-        </Button>
+          <Button color="primary" onClick={handleClick} variant='contained'>
+            Add
+          </Button>
+        </Stack>
       </Stack>
-    </Stack>
     </>
 
 
