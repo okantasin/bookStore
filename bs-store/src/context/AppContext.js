@@ -5,7 +5,7 @@ const AppContext = createContext();
 export const AppContextProvider = ({ children }) => {
     const authorService = new AuthorService();
     const [authors, setAuthors] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         authorService.getAllAuthors().then(authors => setAuthors(authors.data));

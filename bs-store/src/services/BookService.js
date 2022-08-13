@@ -11,7 +11,8 @@ class BookService{
         .catch(err=>console.error("GET ERROR",err));
     }
     async getOneBook(id){
-        return await axios.get(`${this.baseUrl}/${id}`)
+        let url = `${this.baseUrl}/${id}`;
+        return await axios.get(url)
         .then(response=>response.data)
         .catch(err=>console.error("GET ERROR",err));
     }
@@ -20,16 +21,18 @@ class BookService{
         .then(response=>response.data)
         .catch(err=>console.error("POST ERROR",err));
     }
-    async putOneBook(book){
-        return await axios.put(`${this.baseUrl}/${book.id}`,book)
+    async putOneBook(id,book){
+        let url = `${this.baseUrl}/${id}`;
+        return await axios.put(url,book)
         .then(response=>response.data)
         .catch(err=>console.error("PUT ERROR",err));
     }
     async deleteOneBook(id){
-        return await axios.delete(`${this.baseUrl}/${id}`)
+        let url = `${this.baseUrl}/${id}`;
+        return await axios.delete(url)
         .then(response=>response.data)
         .catch(err=>console.error("DELETE ERROR",err));
     }
 
 }
-export default BookService();
+export default BookService;
