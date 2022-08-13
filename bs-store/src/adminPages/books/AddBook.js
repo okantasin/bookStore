@@ -25,6 +25,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { postOneBook } from "../../store/actions/bookActions";
 import { showSnackbar } from "../../store/actions/settingActions";
 import SimpleFab from "../../components/fab/SimpleFab";
+import validationSchema from "../books/AddBookValidation"
+
 export default function AddBook() {
   const navigate = useNavigate();
 
@@ -56,6 +58,8 @@ export default function AddBook() {
         }));
         navigate("/admin/books/list");
       },
+     validationSchema,
+
     });
 
   useEffect(() => {
