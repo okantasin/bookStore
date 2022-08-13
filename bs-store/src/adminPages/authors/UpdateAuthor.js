@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useParams } from 'react-router-dom';
 import { getOneAuthor } from '../../store/actions/authorAction';
 import { putOneAuthor } from '../../store/actions/authorAction';
-import { setMessage } from '../../store/actions/settingActions';
+import { setMessage, showSnackbar } from '../../store/actions/settingActions';
 import { TextField, Box, Stack, Button } from '@mui/material';
 
 export default function UpdateAuthor() {
@@ -29,7 +29,7 @@ export default function UpdateAuthor() {
     }, [])
     const handleClick = () => {
         authorDispatch(putOneAuthor(id, form));
-        authorDispatch(setMessage("Author updated successfully"));
+        authorDispatch(showSnackbar({ message: "Author updated", severity: "success", duration: 6000 }));
         navigate("/admin/authors/list");
     }
 

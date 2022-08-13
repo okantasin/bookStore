@@ -9,7 +9,7 @@ import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import { Button, ButtonGroup, Fab } from '@mui/material'
 import AddIcon from '@mui/icons-material/Add'
-import { setMessage } from '../../store/actions/settingActions'
+import { setMessage, showSnackbar } from '../../store/actions/settingActions'
 import { deleteOneAuthor } from '../../store/actions/authorAction';
 import { getAllAuthors } from '../../store/actions/authorAction';
 
@@ -24,7 +24,7 @@ export default function ListAuthors() {
     }
     const handleDelete = (id) => {
         authorDispatch(deleteOneAuthor(id));
-        authorDispatch(setMessage("Author deleted successfully"));
+        authorDispatch(showSnackbar({ message: "Author deleted", severity: "warning", duration: 6000 }));
         navigate("/admin/authors/list");
 
     }

@@ -4,13 +4,14 @@ import { useDispatch } from 'react-redux';
 import {postOneCategory } from '../../store/actions/categoryActions'
 import { TextField } from '@mui/material';
 import { Button, Box, Stack } from '@mui/material';
-import { setMessage } from '../../store/actions/settingActions';
+import { setMessage, showSnackbar } from '../../store/actions/settingActions';
 import {useSelector} from 'react-redux'
 
 export default function AddCategory() {
     const navigate = useNavigate();
     const categoryDispatch = useDispatch();
     const{message} = useSelector((state) => state.setting);
+    const{snackBar} = useSelector((state)=>state.setting)
     const [form, setForm] = useState({
         categoryName: "",
         categoryDescription: "",
@@ -18,7 +19,7 @@ export default function AddCategory() {
 
     const handleClick = () => {
         categoryDispatch(postOneCategory(form));
-        categoryDispatch(setMessage( "Category added successfully" ));
+        categoryDispatch(showSnackbar({ message: "Category added", severity: "success", duration: 6000 }));
         navigate("/admin/categories/list");
     }
     const handleChange = (e) => {

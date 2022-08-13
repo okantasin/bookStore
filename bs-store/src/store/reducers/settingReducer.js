@@ -1,22 +1,19 @@
-import {SET_MESSAGE, SET_THEME, GET_THEME, CLOSE_SNACKBAR} from '../actions/settingActions';
-import {message, showSnackbar, theme, pageSize} from '../initialValues/settingItems';
+import {
+    SET_THEME,
+    GET_THEME,
+    CLOSE_SNACKBAR,
+    SET_SNACKBAR
+} from '../actions/settingActions';
+import { snackbar, theme, pageSize } from '../initialValues/settingItems';
 
-const initialValue={
+const initialValue = {
     theme,
     pageSize,
-    message,
-    showSnackbar
+    snackbar
 }
 
-export default function settingReducer(state=initialValue,{type,payload}) {
-    switch(type) {
-        case SET_MESSAGE:
-            return {
-                ...state,
-                message: payload,
-                showSnackbar : true
-            };
-
+export default function settingReducer(state = initialValue, { type, payload }) {
+    switch (type) {
         case SET_THEME:
             return {
                 ...state,
@@ -30,12 +27,23 @@ export default function settingReducer(state=initialValue,{type,payload}) {
         case CLOSE_SNACKBAR:
             return {
                 ...state,
-                showSnackbar: false,
-                message:''
+                snackbar: {
+                    message: '',
+                    open: false
+                }
             };
-            
+        case SET_SNACKBAR:
+            return {
+                ...state,
+                snackbar: {
+                    message: payload.message,
+                    duration: payload.duration,
+                    severity: payload.severity,
+                    open:true,
+                }
+            }
         default:
-            return{
+            return {
                 ...state
             };
     }

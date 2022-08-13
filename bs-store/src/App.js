@@ -12,17 +12,32 @@ import SimpleSnackbar from "./components/snackBar/SimpleSnackbar";
 import AppContext from "./context/AppContext";
 import { useContext } from "react";
 import { useSelector } from "react-redux";
-import Box from "@mui/material/Box";
+import AdminAppbar from './components/adminAppBar/AdminAppBar';
 import CircularProgress from "@mui/material/CircularProgress";
-
+import Box from "@mui/material/Box";
 
 function App() {
   const { isLoading } = useContext(AppContext);
-  const { message, showSnackbar } = useSelector(state => state.setting);
+  const { showSnackbar } = useSelector(state => state.setting);
+  const {snackbar} = useSelector((state)=>state.setting)
 
   return (
     <div>
-      <AdminAppBar />
+        <AdminAppbar />
+      {/* {isLoading ? (
+        <Box sx={{ 
+          position:"absolute",
+          display: "flex", 
+          justifyContent: "center",
+          width:"100vw",
+          height:'100vh',
+          alignItems:"center"
+          }}>
+          <CircularProgress />
+        </Box>
+      ) : (
+        ""
+      )} */}
 
       <Routes>
         <Route path="/" element={<Home />} ></Route>
@@ -37,7 +52,7 @@ function App() {
         <Route path="admin/authors/update/:id" element={<UpdateAuthor />} />
       </Routes>
 
-      <SimpleSnackbar message={message} showSnackbar={showSnackbar} />
+      <SimpleSnackbar snackbar={snackbar} />
 
 
     </div>

@@ -11,11 +11,13 @@ import TableRow from "@mui/material/TableRow";
 import { Button, ButtonGroup ,Fab} from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { setMessage } from '../../store/actions/settingActions';
+import { showSnackbar } from '../../store/actions/settingActions';
 
 
 export default function ListCategories() {
   const navigate = useNavigate();
   const { categories } = useSelector((state) => state.category);
+  const {snackBar}  = useSelector((state)=>state.setting)
   const categoryDispatch = useDispatch();
 
 
@@ -25,7 +27,11 @@ export default function ListCategories() {
 
   const handleDelete = (id) => {
     categoryDispatch(deleteOneCategory(id));
-    categoryDispatch(setMessage("Category deleted successfully" ));
+    categoryDispatch(showSnackbar({
+      message:"Category deleted successfully",
+      duration:3000,
+      severity:"warning",
+      }));
     navigate("/admin/categories/list");
     
   }

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { TextField } from '@mui/material';
 import { Button, Stack } from "@mui/material";
-import { setMessage } from '../../store/actions/settingActions';
+import { setMessage, showSnackbar } from '../../store/actions/settingActions';
 import { useSelector } from 'react-redux'
 import { postOneAuthor } from '../../store/actions/authorAction'
 
@@ -11,7 +11,7 @@ import { postOneAuthor } from '../../store/actions/authorAction'
 export default function AddAuthor() {
   const navigate = useNavigate();
   const authorDispatch = useDispatch();
-  const { message } = useSelector((state) => state.setting);
+  const { snackbar } = useSelector((state) => state.setting);
   const [form, setForm] = useState({
     authorName: "",
     authorSurname: "",
@@ -21,7 +21,7 @@ export default function AddAuthor() {
 
   const handleClick = () => {
     authorDispatch(postOneAuthor(form))
-    authorDispatch(setMessage("Author added successfully"));
+    authorDispatch(showSnackbar({ message: "Author added", severity: "success", duration: 6000 }));
     navigate("/admin/authors/list");
   }
 

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Button, Grid, Box, Stack, TextField } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
-import { setMessage } from '../../store/actions/settingActions';
+import { setMessage, showSnackbar } from '../../store/actions/settingActions';
 import { getOneCategory } from '../../store/actions/categoryActions';
 import { putOneCategory } from "../../store/actions/categoryActions"
 export default function UpdateCategory() {
@@ -11,6 +11,7 @@ export default function UpdateCategory() {
     const navigate = useNavigate();
     const { message } = useSelector((state) => state.setting);
     const { category } = useSelector((state) => state.category);
+    const {snackbar} = useSelector((state)=>state.setting)
     const { id } = useParams();
 
     const [form, setForm] = useState({
@@ -28,7 +29,11 @@ export default function UpdateCategory() {
 
     const handleClick = () => {
         categoryDispatch(putOneCategory(id, form));
-        categoryDispatch(setMessage("Category updated successfully"));
+        categoryDispatch(showSnackbar({
+            message:"Category updated successfully",
+            duration:3000,
+            severity:"success",
+        }));
         navigate("/admin/categories/list");
     }
 
