@@ -8,7 +8,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { Avatar, Button } from "@mui/material";
-
+import {  ButtonGroup } from "@mui/material";
+import AuthorList from '../../components/authorList/AuthorList'
 
 function ListBooks() {
   const bookDispatch = useDispatch();
@@ -29,12 +30,14 @@ useEffect(()=>{
               <TableCell>İmage</TableCell>
               <TableCell>Title</TableCell>
               <TableCell>Unit Price</TableCell>
-              <TableCell>Publisher</TableCell>
+              <TableCell>Publishers</TableCell>
+              <TableCell>Author</TableCell>
+              <TableCell>Category Name</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {books.map((book) => {
-             const {bookId, title, unitPrice, publisher} = book;
+             const {bookId, title, unitPrice, publisher, category, bookAuthors} = book;
               return (
                 <TableRow>
                   <TableCell>{bookId}</TableCell>
@@ -44,6 +47,18 @@ useEffect(()=>{
                   <TableCell>{title}</TableCell>
                   <TableCell>{unitPrice}</TableCell>
                   <TableCell>{publisher}</TableCell>
+                  <TableCell align="center">
+                    <AuthorList authors={bookAuthors} />
+                  </TableCell>
+                  <TableCell>{category.categoryName}</TableCell>
+                  <TableCell>
+                    <ButtonGroup orientation='vertical'>
+                      <Button variant="contained" color="primary">Edit</Button>
+                      <Button variant="contained" color="secondary">
+                        Delete
+                      </Button>
+                    </ButtonGroup>
+                  </TableCell>
                 </TableRow>
               );
             })}
