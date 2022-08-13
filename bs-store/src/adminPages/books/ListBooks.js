@@ -14,6 +14,7 @@ import {deleteOneBook} from '../../store/actions/bookActions'
 import {showSnackbar} from '../../store/actions/settingActions'
 import { useNavigate } from 'react-router-dom'
 import SimpleFab from '../../components/fab/SimpleFab';
+import { BookmarkBorderOutlined } from '@mui/icons-material';
 
 function ListBooks() {
   const bookDispatch = useDispatch();
@@ -24,8 +25,8 @@ function ListBooks() {
     bookDispatch(getAllBooks())
   }, [])
 
-  const handleEdit = (id) => {
-    navigate(`/admin/books/update/${id}`)
+  const handleEdit = (bookId) => {
+    navigate(`/admin/books/update/${bookId}`)
   }
 
   const handleDelete = (bookId) => {
