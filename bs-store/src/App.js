@@ -53,7 +53,7 @@ function App() {
 
         <Route path="admin/categories/update/:id" element={<UpdateCategory />} />
         <Route path="admin/authors/update/:id" element={<UpdateAuthor />} />
-        <Route path="admin/books/update/:id" element={<UpdateBook/>}/>}
+        <Route path="admin/books/update/:id" element={<UpdateBook/>}/>
 
       </Routes>
 

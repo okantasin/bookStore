@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import Table from '@mui/material/Table'
@@ -33,7 +33,7 @@ export default function ListAuthors() {
 
     useEffect(() => {
         authorDispatch(getAllAuthors());
-    } , []);
+    }, []);
 
     return (
         <>
@@ -60,11 +60,11 @@ export default function ListAuthors() {
                                     <TableCell>{email}</TableCell>
                                     <TableCell>{authorDescription}</TableCell>
 
-                                        <ButtonGroup>
-                                            <Button variant="contained" color="primary"  onClick={() => handleEdit(authorId)}>Edit</Button>
-                                            <Button variant="contained" color="secondary" onClick={() => handleDelete(authorId)}>Delete</Button>
-                                        </ButtonGroup>
-                                  
+                                    <ButtonGroup>
+                                        <Button variant="contained" color="primary" onClick={() => handleEdit(authorId)}>Edit</Button>
+                                        <Button variant="contained" color="secondary" onClick={() => handleDelete(authorId)}>Delete</Button>
+                                    </ButtonGroup>
+
                                 </TableRow>
                             )
                         }

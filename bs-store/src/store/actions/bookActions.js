@@ -40,10 +40,10 @@ export function putOneBook(id, book) {
     }
 }
 
-export function deleteBook(id) {
+export function deleteOneBook(id) {
 
     return function (dispatch) {
-        bookService.deleteBook(id)
+        bookService.deleteOneBook(id)
             .then(book => book.data)
             .then(book => dispatch({ type: DELETE_ONE_BOOK, payload: book }))
     }

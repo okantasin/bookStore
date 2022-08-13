@@ -16,14 +16,12 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <CustomThemeProvider>
-
         <AppContextProvider>
           <BrowserRouter>
             <App />
           </BrowserRouter>
         </AppContextProvider>
       </CustomThemeProvider>
-
     </Provider>
   </React.StrictMode>
 );

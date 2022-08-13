@@ -1,6 +1,5 @@
-import { StarPurple500 } from "@mui/icons-material";
 import { createTheme } from "@mui/material";
-import {blue,brown,amber,white,green,purple,red,yellow} from "@mui/material/colors";
+import {blue,brown,amber,green,purple} from "@mui/material/colors";
 
 const theme1 = createTheme({
     palette: {

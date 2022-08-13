@@ -6,7 +6,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import MuiAlert from "@mui/material/Alert";
 import { useDispatch } from 'react-redux'
 import { closeSnackbar } from '../../store/actions/settingActions'
-import { snackbar } from '../../store/initialValues/settingItems';
 
 export default function SimpleSnackbar({ snackbar }) {
 
