@@ -1,23 +1,16 @@
 package com.bookstore.api.core.config;
 
+import com.bookstore.api.business.concretes.ApplicationUserManager;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.authentication.configurers.userdetails.DaoAuthenticationConfigurer;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
-
-import static com.bookstore.api.core.security.ApplicationUserRole.*;
 
 @Configuration // This is a configuration class
 @EnableWebSecurity
@@ -26,7 +19,7 @@ import static com.bookstore.api.core.security.ApplicationUserRole.*;
 public class ApplicationSecurityConfig  extends WebSecurityConfigurerAdapter {
 
     private final PasswordEncoder  passwordEncoder;
-
+    private ApplicationUserManager applicationUserManager;
     @Override
     protected void configure(HttpSecurity http) throws Exception {
          http
@@ -37,31 +30,18 @@ public class ApplicationSecurityConfig  extends WebSecurityConfigurerAdapter {
                 .authenticated()
                 .and()
                 .httpBasic();
+
     }
 
     @Override
-    @Bean
-    protected UserDetailsService userDetailsService() {
-          UserDetails admin = User.builder()
-                    .username("admin")
-                    .password(passwordEncoder.encode("admin123456"))
-                    .authorities(ADMIN.getGrandtedAuthorities())
-                   // .roles(ADMIN.name())
-                    .build();
-        UserDetails editor = User.builder()
-                .username("editor")
-                .password(passwordEncoder.encode("editor123456"))
-                .authorities(EDITOR.getGrandtedAuthorities())
-             //  .roles(EDITOR.name())
-                .build();
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.authenticationProvider(daoAuthenticationProvider());
+    }
 
-        UserDetails user = User.builder()
-                .username("user")
-                .password(passwordEncoder.encode("user123456"))
-                .authorities(USER.getGrandtedAuthorities())
-               // .roles(USER.name())
-                .build();
-
-        return new InMemoryUserDetailsManager(admin, editor, user);
+    private AuthenticationProvider daoAuthenticationProvider(){
+        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+        provider.setPasswordEncoder(passwordEncoder);
+        provider.setUserDetailsService(applicationUserManager);
+        return provider;
     }
 }
