@@ -1,6 +1,6 @@
 package com.bookstore.api.business.concretes;
 
-import com.bookstore.api.business.abstracts.ApplicationUserService;
+import com.bookstore.api.business.abstracts.ApplicationUserDao;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class ApplicationUserManager implements UserDetailsService {
-    private final ApplicationUserService applicationUserDao;
+public class ApplicationUserService implements UserDetailsService {
+    private final ApplicationUserDao applicationUserDao;
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return applicationUserDao

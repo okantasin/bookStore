@@ -1,6 +1,6 @@
 package com.bookstore.api.business.concretes;
 
-import com.bookstore.api.business.abstracts.ApplicationUserService;
+import com.bookstore.api.business.abstracts.ApplicationUserDao;
 import com.bookstore.api.core.security.ApplicationUser;
 import com.google.common.collect.Lists;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,7 @@ import static com.bookstore.api.core.security.ApplicationUserRole.*;
 
 @Service
 @RequiredArgsConstructor
-public class FakeApplicationUserManager implements ApplicationUserService {
+public class FakeApplicationUserDaoService implements ApplicationUserDao {
     private final PasswordEncoder passwordEncoder;
 
     @Override

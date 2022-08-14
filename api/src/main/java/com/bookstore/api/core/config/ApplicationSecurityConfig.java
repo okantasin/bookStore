@@ -1,6 +1,6 @@
 package com.bookstore.api.core.config;
 
-import com.bookstore.api.business.concretes.ApplicationUserManager;
+import com.bookstore.api.business.concretes.ApplicationUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -19,7 +19,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class ApplicationSecurityConfig  extends WebSecurityConfigurerAdapter {
 
     private final PasswordEncoder  passwordEncoder;
-    private ApplicationUserManager applicationUserManager;
+    private ApplicationUserService applicationUserService;
     @Override
     protected void configure(HttpSecurity http) throws Exception {
          http
@@ -41,7 +41,7 @@ public class ApplicationSecurityConfig  extends WebSecurityConfigurerAdapter {
     private AuthenticationProvider daoAuthenticationProvider(){
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setPasswordEncoder(passwordEncoder);
-        provider.setUserDetailsService(applicationUserManager);
+        provider.setUserDetailsService(applicationUserService);
         return provider;
     }
 }
