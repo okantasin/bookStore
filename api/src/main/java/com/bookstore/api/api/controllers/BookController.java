@@ -7,6 +7,7 @@ import com.bookstore.api.core.models.ApiResponse;
 import com.bookstore.api.entities.abstracts.Book;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class BookController {
     private final BookService bookService;
 
     @GetMapping
+    @PreAuthorize("hasAuthority('book:get')")
     public ApiResponse<List<Book>> getAllBooks() {
         return bookService.getAllBooks();
     }
@@ -28,6 +30,7 @@ public class BookController {
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<?> createBook(@RequestBody BookDtoForPost request) {
        var response = bookService.createBook(request);
         return new ResponseEntity<>(response, response.getHttpStatus());
