@@ -19,34 +19,41 @@ public class FakeApplicationUserDaoService implements ApplicationUserDao {
 
     @Override
     public Optional<ApplicationUser> selectApplicationUserByUsername(String username) {
-        return  getApplicationUsers().stream()
+
+        return getApplicationUsers().stream()
                 .filter(applicationUser -> username.equals(applicationUser.getUsername()))
                 .findFirst();
     }
-    private List<ApplicationUser> getApplicationUsers(){
-        return Lists.newArrayList(
-                new ApplicationUser("user",
-                        passwordEncoder.encode("user123"),
-                        ADMIN.getGrandtedAuthorities(),
+
+        private List<ApplicationUser> getApplicationUsers() {
+
+        List<ApplicationUser> applicationUsers = Lists.newArrayList(
+
+                new ApplicationUser("editor",
+                        passwordEncoder.encode("editor123"),
+                        EDITOR.getGrantedAuthorities(),
                         true,
                         true,
                         true,
                         true),
                 new ApplicationUser("admin",
-                        passwordEncoder.encode("admin123"),
-                        USER.getGrandtedAuthorities(),
+                        passwordEncoder.encode("admin123456"),
+                        ADMIN.getGrantedAuthorities(),
                         true,
                         true,
                         true,
                         true),
-                new ApplicationUser("editor",
-                        passwordEncoder.encode("editor123"),
-                        EDITOR.getGrandtedAuthorities(),
+                new ApplicationUser("user",
+                        passwordEncoder.encode("user123"),
+                        USER.getGrantedAuthorities(),
                         true,
                         true,
                         true,
                         true)
         );
+            return applicationUsers;
+        }
+
     }
-}
+
 
