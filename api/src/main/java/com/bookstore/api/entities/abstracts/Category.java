@@ -8,7 +8,6 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @Data
@@ -20,11 +19,11 @@ public class Category {
     @Id
     @GeneratedValue
     @Column(name = "category_id")
-    private int categoryId;
+    private int id;
     @Column(name = "category_name")
     private String categoryName;
-    @Column(name = "category_description")
-    private String categoryDescription;
+    @Column(name = "description")
+    private String description;
 
     @JsonIgnore
     @OneToMany(mappedBy = "category")

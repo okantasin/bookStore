@@ -10,13 +10,13 @@ import java.util.List;
 public interface BookService {
     ApiResponse<List<Book>> getAllBooks();
 
-    ApiResponse<Book> getOneBook(int bookId);
+    ApiResponse<Book> getOneBook(int id);
 
     ApiResponse<Book> createBook(BookDtoForPost request);
 
-    ApiResponse<Book> updateBook(int bookId, BookDtoForPut request);
+    ApiResponse<Book> updateBook(int id, BookDtoForPut request);
 
-    ApiResponse<Book> deleteBook(int bookId);
+    ApiResponse<Book> deleteBook(int id);
 
 }
 

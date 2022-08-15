@@ -7,6 +7,7 @@ import com.bookstore.api.core.models.ApiResponse;
 import com.bookstore.api.entities.abstracts.Author;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,26 +27,29 @@ public class AuthorController {
     }
 
 
-    @GetMapping(path="/{authorId}")
-    public ApiResponse<Author> getOneAuthor(@PathVariable(name = "authorId", required = true) int authorId) {
-        return authorService.getOneAuthor(authorId);
+    @GetMapping(path="/{id}")
+    public ApiResponse<Author> getOneAuthor(@PathVariable(name = "id", required = true) int id) {
+        return authorService.getOneAuthor(id);
     }
 
     @PostMapping
+    @PreAuthorize("hasAuthority('author:post')")
     public ResponseEntity<?> createBook(@RequestBody AuthorDtoForPost request) {
         var response = authorService.createAuthor(request);
         return new ResponseEntity<>(response, response.getHttpStatus());
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteAuthor(@PathVariable(name="id") int authorId) {
-        var response = authorService.deleteAuthor(authorId);
+    @PreAuthorize("hasAuthority('author:delete')")
+    public ResponseEntity<?> deleteAuthor(@PathVariable(name="id") int id) {
+        var response = authorService.deleteAuthor(id);
         return new ResponseEntity<>(response, response.getHttpStatus());
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateAuthor(@PathVariable(name="id") int authorId, @RequestBody AuthorDtoForPut request) {
-        var response = authorService.updateAuthor(authorId, request);
+    @PreAuthorize("hasAuthority('author:put')")
+    public ResponseEntity<?> updateAuthor(@PathVariable(name="id") int id, @RequestBody AuthorDtoForPut request) {
+        var response = authorService.updateAuthor(id, request);
         return new ResponseEntity<>(response, response.getHttpStatus());
     }
 

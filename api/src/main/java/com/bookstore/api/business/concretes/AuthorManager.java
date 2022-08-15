@@ -7,7 +7,6 @@ import com.bookstore.api.core.exceptions.BookNotFoundException;
 import com.bookstore.api.core.models.ApiResponse;
 import com.bookstore.api.dataAccess.AuthorRepository;
 import com.bookstore.api.entities.abstracts.Author;
-import com.bookstore.api.entities.abstracts.Book;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -30,8 +29,8 @@ public class AuthorManager implements AuthorService {
     }
 
     @Override
-    public ApiResponse<Author> getOneAuthor(int authorId) {
-        Author author = this.authorRepository.findById(authorId).orElseThrow(() -> new BookNotFoundException(authorId));
+    public ApiResponse<Author> getOneAuthor(int id) {
+        Author author = this.authorRepository.findById(id).orElseThrow(() -> new BookNotFoundException(id));
         return ApiResponse.default_OK(author);
     }
 
@@ -44,18 +43,18 @@ public class AuthorManager implements AuthorService {
     }
 
     @Override
-    public ApiResponse<Author> updateAuthor(int authorId, AuthorDtoForPut request) {
-        Author author =getOneAuthor(authorId).getData();
+    public ApiResponse<Author> updateAuthor(int id, AuthorDtoForPut request) {
+        Author author =getOneAuthor(id).getData();
         author = this.modelMapper.map(request, Author.class);
-        author.setAuthorId(authorId);
+        author.setId(id);
         authorRepository.save(author);
         return ApiResponse.default_ACCEPTED(author);
     }
 
     @Override
-    public ApiResponse<Author> deleteAuthor(int authorId) {
-        Author author = getOneAuthor(authorId).getData();
-        authorRepository.deleteById(authorId);
+    public ApiResponse<Author> deleteAuthor(int id) {
+        Author author = getOneAuthor(id).getData();
+        authorRepository.deleteById(id);
         return ApiResponse.default_GONE(author);
     }
 

@@ -13,13 +13,13 @@ import java.util.Set;
 public interface AuthorService {
     ApiResponse<List<Author>> getAllAuthors();
 
-    ApiResponse<Author> getOneAuthor(int authorId);
+    ApiResponse<Author> getOneAuthor(int id);
 
     ApiResponse<Author> createAuthor(AuthorDtoForPost request);
 
-    ApiResponse<Author> updateAuthor(int authorId, AuthorDtoForPut request);
+    ApiResponse<Author> updateAuthor(int id, AuthorDtoForPut request);
 
-    ApiResponse<Author> deleteAuthor(int authorId);
+    ApiResponse<Author> deleteAuthor(int id);
 
     Set<Author> getAuthorsById(List<Integer> authorsIds);
 }

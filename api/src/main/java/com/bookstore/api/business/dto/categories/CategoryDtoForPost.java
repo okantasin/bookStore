@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CategoryDtoForPost {
     private String categoryName;
-    private String categoryDescription;
+    private String description;
 
 }

@@ -16,7 +16,7 @@ public class Book {
     @Id
     @GeneratedValue
     @Column(name = "book_id")
-    private int bookId;
+    private int id;
     @Column(name = "title")
     private String title;
     @Column(name = "unit_price")

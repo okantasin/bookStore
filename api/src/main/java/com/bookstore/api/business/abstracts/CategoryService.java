@@ -11,12 +11,12 @@ import java.util.List;
 public interface CategoryService {
     ApiResponse<List<Category>> getAllCategories();
 
-    ApiResponse<Category> getOneCategories(int categoryId);
+    ApiResponse<Category> getOneCategories(int id);
 
-    ApiResponse<Category> createOneCategory(CategoryDtoForPost request);
+    ApiResponse<Category> createOneCategory(CategoryDtoForPost id);
 
-    ApiResponse<Category> updateOneCategory(int categoryId, CategoryDtoForPost request);
+    ApiResponse<Category> updateOneCategory(int id, CategoryDtoForPost request);
 
-    ApiResponse<Category> deleteOneCategory(int categoryId);
+    ApiResponse<Category> deleteOneCategory(int id);
 
 }

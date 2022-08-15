@@ -1,0 +1,2 @@
+2022-08-15 17:20:08,769 ERROR com.bookstore.api.core.exceptions.RestResponseEntityExceptionHandler [http-nio-8080-exec-6] ApiErrorResponse(path=uri=/api/v1/categories/6, errors=[Book with id 6 not found])
+2022-08-15 17:20:10,847 ERROR com.bookstore.api.core.exceptions.RestResponseEntityExceptionHandler [http-nio-8080-exec-7] ApiErrorResponse(path=uri=/api/v1/categories/6, errors=[Book with id 6 not found])

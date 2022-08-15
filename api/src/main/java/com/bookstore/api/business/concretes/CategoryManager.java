@@ -25,31 +25,31 @@ public class CategoryManager implements CategoryService {
     }
 
     @Override
-    public ApiResponse<Category> getOneCategories(int categoryId) {
-        Category category = this.categoryRepository.findById(categoryId).orElseThrow(() -> new BookNotFoundException(categoryId));
+    public ApiResponse<Category> getOneCategories(int id) {
+        Category category = this.categoryRepository.findById(id).orElseThrow(() -> new BookNotFoundException(id));
         return ApiResponse.default_OK(category);
     }
 
     @Override
-    public ApiResponse<Category> createOneCategory(CategoryDtoForPost request) {
-        Category category = this.modelMapper.map(request, Category.class);
+    public ApiResponse<Category> createOneCategory(CategoryDtoForPost id) {
+        Category category = this.modelMapper.map(id, Category.class);
         category = this.categoryRepository.save(category);
         return ApiResponse.default_CREATED(category);
     }
 
     @Override
-    public ApiResponse<Category> updateOneCategory(int categoryId, CategoryDtoForPost request) {
-        Category category = getOneCategories(categoryId).getData();
+    public ApiResponse<Category> updateOneCategory(int id, CategoryDtoForPost request) {
+        Category category = getOneCategories(id).getData();
         category = this.modelMapper.map(request, Category.class);
-        category.setCategoryId(categoryId);
+        category.setId(id);
         categoryRepository.save(category);
         return ApiResponse.default_ACCEPTED(category);
     }
 
     @Override
-    public ApiResponse<Category> deleteOneCategory(int categoryId) {
-        Category category = getOneCategories(categoryId).getData();
-        categoryRepository.deleteById(categoryId);
+    public ApiResponse<Category> deleteOneCategory(int id) {
+        Category category = getOneCategories(id).getData();
+        categoryRepository.deleteById(id);
         return ApiResponse.default_GONE(category);
     }
 }

@@ -35,8 +35,8 @@ public class BookManager implements BookService {
     }
 
     @Override
-    public ApiResponse<Book> getOneBook(int bookId) {
-        Book book = this.bookRepository.findById(bookId).orElseThrow(() -> new BookNotFoundException(bookId));
+    public ApiResponse<Book> getOneBook(int id) {
+        Book book = this.bookRepository.findById(id).orElseThrow(() -> new BookNotFoundException(id));
         return ApiResponse.default_OK(book);
     }
 
@@ -52,21 +52,21 @@ public class BookManager implements BookService {
     }
 
     @Override
-    public ApiResponse<Book> updateBook(int bookId, BookDtoForPut request) {
+    public ApiResponse<Book> updateBook(int id, BookDtoForPut request) {
         Category category = categoryService.getOneCategories(request.getCategoryId()).getData();
         Set<Author> authors= authorService.getAuthorsById(request.getAuthorIds());
-        Book book = getOneBook(bookId).getData();
+        Book book = getOneBook(id).getData();
         book = this.modelMapper.map(request, Book.class);
-        book.setBookId(bookId);
+        book.setId(id);
         book.setBookAuthors(authors);
         book.setCategory(category);
         bookRepository.save(book);
         return ApiResponse.default_ACCEPTED(book);
     }
     @Override
-    public ApiResponse<Book> deleteBook(int bookId) {
-        Book book = getOneBook(bookId).getData();
-        bookRepository.deleteById(bookId);
+    public ApiResponse<Book> deleteBook(int id) {
+        Book book = getOneBook(id).getData();
+        bookRepository.deleteById(id);
         return ApiResponse.default_GONE(book);
     }
 

@@ -15,7 +15,7 @@ public class Author {
     @Id
     @GeneratedValue
     @Column(name = "author_id")
-    private int authorId;
+    private int id;
     @Column(name = "author_name")
     private String authorName;
     @Column(name = "author_surname")
