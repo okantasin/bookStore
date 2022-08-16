@@ -7,7 +7,7 @@ import TableCell from '@mui/material/TableCell'
 import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
-import { Button, ButtonGroup, Fab } from '@mui/material'
+import { Button, ButtonGroup, Fab, Avatar } from '@mui/material'
 import AddIcon from '@mui/icons-material/Add'
 import { setMessage, showSnackbar } from '../../store/actions/settingActions'
 import { deleteOneAuthor } from '../../store/actions/authorAction';
@@ -42,7 +42,7 @@ export default function ListAuthors() {
                 <Table>
                     <TableHead>
                         <TableRow>
-                            <TableCell>AuthorId</TableCell>
+                            <TableCell>Image</TableCell>
                             <TableCell>Name</TableCell>
                             <TableCell>Surname</TableCell>
                             <TableCell>Email</TableCell>
@@ -51,19 +51,27 @@ export default function ListAuthors() {
                     </TableHead>
                     <TableBody>
                         {authors.map((author) => {
-                            const { authorId, authorName, authorSurname, email, authorDescription } = author;
+                            const { id, authorName, authorSurname, email, authorDescription } = author;
                             return (
-                                <TableRow key={authorId}>
-                                    <TableCell>{authorId}</TableCell>
+
+                                <TableRow key={id}>
+                                    <TableCell align='left'>
+                                        <Avatar src={`/authors/${author.id % 20}.jpg`}></Avatar>
+                                    </TableCell>
                                     <TableCell>{authorName}</TableCell>
                                     <TableCell>{authorSurname}</TableCell>
                                     <TableCell>{email}</TableCell>
                                     <TableCell>{authorDescription}</TableCell>
+                                    <TableCell>
 
-                                    <ButtonGroup>
-                                        <Button variant="contained" color="primary" onClick={() => handleEdit(authorId)}>Edit</Button>
-                                        <Button variant="contained" color="secondary" onClick={() => handleDelete(authorId)}>Delete</Button>
-                                    </ButtonGroup>
+
+                                        <ButtonGroup orientation='vertical'>
+                                            <Button variant="contained" color="primary" onClick={() => handleEdit(id)}>Edit</Button>
+                                            <Button variant="contained" color="secondary" onClick={() => handleDelete(id)}>Delete</Button>
+                                        </ButtonGroup>
+
+                                    </TableCell>
+
 
                                 </TableRow>
                             )

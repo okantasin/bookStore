@@ -1,5 +1,4 @@
 import { Route, Routes, Link } from 'react-router-dom';
-import Home from './pages/Home';
 import ListBooks from './adminPages/books/ListBooks';
 import ListAuthors from './adminPages/authors/ListAuthors';
 import ListCategories from './adminPages/categories/ListCategories';
@@ -17,7 +16,9 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 import AddBook from "./adminPages/books/AddBook"
 import UpdateBook from "./adminPages/books/UpdateBook"
-
+import Home from "./pages/home/Home"
+import Login from "./pages/login/Login";
+import BookList from './pages/book/BookList';
 function App() {
   const { isLoading } = useContext(AppContext);
   const { showSnackbar } = useSelector(state => state.setting);
@@ -54,6 +55,11 @@ function App() {
         <Route path="admin/categories/update/:id" element={<UpdateCategory />} />
         <Route path="admin/authors/update/:id" element={<UpdateAuthor />} />
         <Route path="admin/books/update/:id" element={<UpdateBook/>}/>
+
+        <Route path ="auth/login" element={<Login />} />
+
+        <Route path="/books" element={<BookList/>} />
+      
 
       </Routes>
 

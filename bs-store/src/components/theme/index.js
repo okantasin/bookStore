@@ -1,10 +1,10 @@
 import { createTheme } from "@mui/material";
-import {blue,brown,amber,green,purple} from "@mui/material/colors";
+import {blue,brown,amber,green,teal,blueGrey} from "@mui/material/colors";
 
 const theme1 = createTheme({
     palette: {
-      primary: purple,
-      secondary: blue,
+      primary: teal,
+      secondary: blueGrey
     },
     typography: {
         fontSize: 16,

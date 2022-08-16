@@ -15,7 +15,7 @@ export default function AddCategory() {
     const{snackBar} = useSelector((state)=>state.setting)
     const [form, setForm] = useState({
         categoryName: "",
-        categoryDescription: "",
+        description: "",
     });
 
     const handleClick = () => {
@@ -43,8 +43,8 @@ export default function AddCategory() {
                 ></TextField>
 
                 <TextField
-                    name='categoryDescription'
-                    label='Category Description'
+                    name='description'
+                    label='description'
                     onChange={handleChange}
                 ></TextField>
 

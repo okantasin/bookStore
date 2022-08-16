@@ -81,11 +81,11 @@ export default function AddBook() {
                   name='categoryId'
                 >
                   {categories.map((category) => {
-                    const { categoryId, categoryName } = category
+                    const { id, categoryName } = category
                     return (
                       <FormControlLabel
-                        key={categoryId}
-                        value={categoryId}
+                        key={id}
+                        value={id}
                         control={<Radio />}
                         label={categoryName}
                         onChange={handleChange}
@@ -105,11 +105,11 @@ export default function AddBook() {
                   multiple
                 >
                   {authors.map((author) => {
-                    const {authorId,authorName,authorSurname} = author
+                    const {id,authorName,authorSurname} = author
                     return (
                     <MenuItem
-                      value={authorId}
-                      key={authorId}
+                      value={id}
+                      key={id}
                     >{`${authorName} ${authorSurname}`}</MenuItem>
                     )
                   })}

@@ -13,6 +13,7 @@ import AddIcon from "@mui/icons-material/Add";
 import { setMessage } from '../../store/actions/settingActions';
 import { showSnackbar } from '../../store/actions/settingActions';
 import SimpleFab from '../../components/fab/SimpleFab';
+import {Avatar} from "@mui/material";
 
 
 export default function ListCategories() {
@@ -49,26 +50,28 @@ export default function ListCategories() {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Category Id</TableCell>
-              <TableCell>Category Name</TableCell>
-              <TableCell>Category Description</TableCell>
+              <TableCell>Image</TableCell>
+              <TableCell>Name</TableCell>
+              <TableCell>Description</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {categories.map((category) => {
-              const { categoryId, categoryName, categoryDescription } = category;
+              const { id, categoryName, description } = category;
               return (
                 <TableRow
-                  key={categoryId}
+                  key={id}
                 >
-                  <TableCell >{categoryId}</TableCell>
+                  <TableCell align='left'>
+                    <Avatar src={`/categories/${category.id % 8}.jpg`}></Avatar>
+                  </TableCell>
                   <TableCell >{categoryName}</TableCell>
-                  <TableCell >{categoryDescription}</TableCell>
+                  <TableCell >{description}</TableCell>
                   <TableCell component="th" scope="row">
                   </TableCell>
                   <ButtonGroup>
-                    <Button variant="contained" color="primary" onClick={() => handleEdit(categoryId)}>Edit</Button>
-                    <Button variant="contained" color="secondary" onClick={() => handleDelete(categoryId)}>Delete</Button>
+                    <Button variant="contained" color="primary" onClick={() => handleEdit(id)}>Edit</Button>
+                    <Button variant="contained" color="secondary" onClick={() => handleDelete(id)}>Delete</Button>
                   </ButtonGroup>
                 </TableRow>
               )

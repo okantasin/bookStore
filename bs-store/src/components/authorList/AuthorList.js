@@ -6,12 +6,12 @@ export default function AuthorList({authors}) {
     return (
         <AvatarGroup max={4}>
           {authors.map((author) => {
-            const { authorId, authorName, authorSurname } = author;
+            const { id, authorName, authorSurname } = author;
             return (
-              <Tooltip key={authorId} title={`${authorName} ${authorSurname}`}>
+              <Tooltip key={id} title={`${authorName} ${authorSurname}`}>
                 <Avatar
                   alt={`${authorName} ${authorSurname}`}
-                  src={`/authors/${authorId % 121}.jpg`}
+                  src={`/authors/${id % 121}.jpg`}
                 />
               </Tooltip>
             );

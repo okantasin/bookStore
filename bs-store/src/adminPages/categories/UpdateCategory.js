@@ -16,13 +16,13 @@ export default function UpdateCategory() {
 
     const [form, setForm] = useState({
         categoryName: "",
-        categoryDescription: "",
+        description: "",
     });
     useEffect(() => {
         categoryDispatch(getOneCategory(id));
         setForm({
             categoryName: category.categoryName,
-            categoryDescription: category.categoryDescription,
+            description: category.description,
         });
     }, []);
 
@@ -57,9 +57,9 @@ export default function UpdateCategory() {
                 ></TextField>
 
                 <TextField
-                    name='categoryDescription'
-                    label='Category Description'
-                    value={form.categoryDescription}
+                    name='description'
+                    label='Description'
+                    value={form.description}
                     onChange={handleChange}
                 ></TextField>
 

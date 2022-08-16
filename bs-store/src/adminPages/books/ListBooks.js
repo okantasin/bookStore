@@ -25,12 +25,12 @@ function ListBooks() {
     bookDispatch(getAllBooks())
   }, [])
 
-  const handleEdit = (bookId) => {
-    navigate(`/admin/books/update/${bookId}`)
+  const handleEdit = (id) => {
+    navigate(`/admin/books/update/${id}`)
   }
 
-  const handleDelete = (bookId) => {
-    bookDispatch(deleteOneBook(bookId));
+  const handleDelete = (id) => {
+    bookDispatch(deleteOneBook(id));
     bookDispatch(showSnackbar({
       message: "Book deleted successfully",
       duration: 3000,
@@ -46,8 +46,7 @@ function ListBooks() {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Book Id</TableCell>
-              <TableCell>İmage</TableCell>
+              <TableCell>Image</TableCell>
               <TableCell>Title</TableCell>
               <TableCell>Unit Price</TableCell>
               <TableCell>Publishers</TableCell>
@@ -57,24 +56,25 @@ function ListBooks() {
           </TableHead>
           <TableBody>
             {books.map((book) => {
-              const { bookId, title, unitPrice, publisher, category, bookAuthors } = book;
+              const { id, title, unitPrice, publisher, category, bookAuthors } = book;
               return (
                 <TableRow>
-                  <TableCell>{bookId}</TableCell>
                   <TableCell>
-                    <Avatar src={`/books/${bookId % 121}.jpg`}></Avatar>
+                    <Avatar src={`/books/${id % 121}.jpg`}></Avatar>
                   </TableCell>
                   <TableCell>{title}</TableCell>
                   <TableCell>{unitPrice}</TableCell>
                   <TableCell>{publisher}</TableCell>
+                  
                   <TableCell align="center">
                     <AuthorList authors={bookAuthors} />
                   </TableCell>
+                  
                   <TableCell>{category.categoryName}</TableCell>
                   <TableCell>
                     <ButtonGroup orientation='vertical'>
-                      <Button variant="contained" color="primary" onClick={() => handleEdit(bookId)}>Edit</Button>
-                      <Button variant="contained" color="secondary" onClick={() => handleDelete(bookId)}>Delete</Button>
+                      <Button variant="contained" color="primary" onClick={() => handleEdit(id)}>Edit</Button>
+                      <Button variant="contained" color="secondary" onClick={() => handleDelete(id )}>Delete</Button>
 
                     </ButtonGroup>
                   </TableCell>

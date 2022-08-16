@@ -1,4 +1,5 @@
 import axios from "axios";
+import {authenHeaders} from "./AuthConfig";
 
 class AuthorService {
     constructor(){
@@ -9,21 +10,24 @@ class AuthorService {
         .then(response=>response.data).catch(err=>console.error("GET ERROR",err));
     }
     async getOneAuthor(id){
-        return await axios.get(`${this.baseUrl}/${id}`)
+        let url = `${this.baseUrl}/${id}`;
+        return await axios.get(url,authenHeaders)
         .then(response=>response.data).catch(err=>console.error("GET ERROR",err));
     }
    
     async postOneAuthor(author){
-        return await axios.post(this.baseUrl,author)
+        return await axios.post(this.baseUrl,author,authenHeaders)
         .then(response=>response.data).catch(err=>console.error("POST ERROR",err));
     }
 
     async putOneAuthor(author){
-        return await axios.put(`${this.baseUrl}/${author.id}`,author)
+        let url = `${this.baseUrl}/${author.id}`;
+        return await axios.put(url,author,authenHeaders)
         .then(response=>response.data).catch(err=>console.error("PUT ERROR",err));
     }
     async deleteOneAuthor(id){
-        return await axios.delete(`${this.baseUrl}/${id}`)
+        let url =  `${this.baseUrl}/${id}`;
+        return await axios.delete(url,authenHeaders)
         .then(response=>response.data).catch(err=>console.error("DELETE ERROR",err));
     }
 }
