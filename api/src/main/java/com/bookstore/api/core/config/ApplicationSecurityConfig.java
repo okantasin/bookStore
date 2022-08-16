@@ -1,20 +1,28 @@
 package com.bookstore.api.core.config;
 
+
 import com.bookstore.api.business.concretes.ApplicationUserService;
-import lombok.RequiredArgsConstructor;
+import com.bookstore.api.core.jwt.JwtAuthenticationEntryPoint;
+import com.bookstore.api.core.jwt.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
+
+
+import lombok.RequiredArgsConstructor;
+
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.config.BeanIds;
+import org.springframework.security.authentication.AuthenticationManager;
+
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
@@ -22,37 +30,51 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class ApplicationSecurityConfig
         extends WebSecurityConfigurerAdapter {
 
-    private final PasswordEncoder passwordEncoder;
-    private final ApplicationUserService applicationUserService;
+        private final PasswordEncoder passwordEncoder;
+        private final ApplicationUserService applicationUserService;
+        private final JwtAuthenticationEntryPoint handler;
 
-    @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean();
-    }
+        @Bean(BeanIds.AUTHENTICATION_MANAGER)
+        @Override
+        public AuthenticationManager authenticationManagerBean() throws Exception {
+                return super.authenticationManagerBean();
+        }
 
+        @Bean
+        public JwtAuthenticationFilter jwtAuthenticationFilter() {
+                return new JwtAuthenticationFilter();
+        }
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-                .csrf().disable()
-                .authorizeRequests()
-                .antMatchers("/api/**").permitAll()
-                .anyRequest()
-                .authenticated()
-                .and().httpBasic();
-    }
+        @Override
+        protected void configure(HttpSecurity http) throws Exception {
+                http
+                        .csrf().disable()
+                        .exceptionHandling().authenticationEntryPoint(handler)
+                        .and()
+                        .cors()
+                        .and()
+                        .sessionManagement()
+                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                        .and()
+                        .authorizeRequests()
+                        .antMatchers("/api/v1/auth/**").permitAll()
+                        .antMatchers("/api/**").permitAll()
+                        .anyRequest()
+                        .authenticated();
+        }
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.authenticationProvider(daoAuthenticationProvider());
-    }
+        @Override
+        protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+                auth.authenticationProvider(daoAuthenticationProvider());
+        }
 
-    private AuthenticationProvider daoAuthenticationProvider() {
-        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setPasswordEncoder(passwordEncoder);
-        provider.setUserDetailsService(applicationUserService);
-        return provider;
-    }
+        private AuthenticationProvider daoAuthenticationProvider() {
+                DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+                provider.setPasswordEncoder(passwordEncoder);
+                provider.setUserDetailsService(applicationUserService);
+                return provider;
+        }
 
 }
+
 

@@ -15,14 +15,15 @@ public enum ApplicationUserPermission {
     AUTHOR_POST("author:post"),
     AUTHOR_PUT("author:put"),
     AUTHOR_DELETE("author:delete");
-    private final String permission;
 
-    private ApplicationUserPermission(String permission) {
-        this.permission = permission;
-    }
+    private final String permission;
 
     public String getPermission() {
         return permission;
+    }
+
+    private ApplicationUserPermission(String permission) {
+        this.permission = permission;
     }
 
 }

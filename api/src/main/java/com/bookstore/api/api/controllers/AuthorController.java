@@ -14,20 +14,19 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/authors")
+@RequestMapping("api/v1/authors")
 public class AuthorController {
     private final AuthorService authorService;
 
-
-
-
     @GetMapping
+    @PreAuthorize("permitAll()")
     public ApiResponse<List<Author>> getAllAuthors() {
         return authorService.getAllAuthors();
     }
 
 
     @GetMapping(path="/{id}")
+    @PreAuthorize("permitAll()")
     public ApiResponse<Author> getOneAuthor(@PathVariable(name = "id", required = true) int id) {
         return authorService.getOneAuthor(id);
     }

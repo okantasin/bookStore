@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="88a9742f-6e08-4054-ae0b-79a0c736d4e8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/bookstore/api/business/abstracts/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/bookstore/api/business/abstracts/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/bookstore/api/business/concretes/FakeApplicationUserDaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/bookstore/api/business/concretes/FakeApplicationUserDaoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/bookstore/api/business/concretes/UserManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/bookstore/api/core/config/ApplicationSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/bookstore/api/core/config/ApplicationSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/bookstore/api/core/config/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/bookstore/api/core/config/CorsConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/bookstore/api/core/config/ModelMapperConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/bookstore/api/core/config/ModelMapperConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/bookstore/api/core/config/PasswordConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/bookstore/api/core/config/PasswordConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/bookstore/api/core/security/ApplicationUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/bookstore/api/core/security/ApplicationUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/bookstore/api/core/security/ApplicationUserPermission.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/bookstore/api/core/security/ApplicationUserPermission.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/bookstore/api/core/security/ApplicationUserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/bookstore/api/core/security/ApplicationUserRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/application.properties" afterDir="false" />
-    </list>
+    <list default="true" id="88a9742f-6e08-4054-ae0b-79a0c736d4e8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -105,6 +93,7 @@
       <workItem from="1660125583762" duration="52000" />
       <workItem from="1660327926099" duration="3535000" />
       <workItem from="1660517007869" duration="27000" />
+      <workItem from="1660575555708" duration="90000" />
     </task>
     <servers />
   </component>

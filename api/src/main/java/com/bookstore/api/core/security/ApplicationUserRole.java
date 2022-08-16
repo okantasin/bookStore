@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 import static com.bookstore.api.core.security.ApplicationUserPermission.*;
 
 public enum ApplicationUserRole {
+
     ADMIN(Sets.newHashSet(
             BOOK_GET, BOOK_POST, BOOK_PUT, BOOK_DELETE,
             CATEGORY_GET, CATEGORY_POST, CATEGORY_PUT, CATEGORY_DELETE,
@@ -25,7 +26,7 @@ public enum ApplicationUserRole {
 
     private final Set<ApplicationUserPermission> permissions;
 
-    ApplicationUserRole(Set<ApplicationUserPermission> permissions) {
+    private ApplicationUserRole(Set<ApplicationUserPermission> permissions) {
         this.permissions = permissions;
     }
 
@@ -34,9 +35,15 @@ public enum ApplicationUserRole {
     }
 
     public Set<SimpleGrantedAuthority> getGrantedAuthorities() {
-        Set<SimpleGrantedAuthority> permissions = getPermissions().stream()
+        Set<SimpleGrantedAuthority> permissions = getPermissions()
+                .stream()
                 .map(permission -> new SimpleGrantedAuthority(permission.getPermission()))
                 .collect(Collectors.toSet());
+        // book:get
+        // book:set
+        // book:put
+        // book:delete
+        // ROLE_ADMIN
         permissions.add(new SimpleGrantedAuthority("ROLE_" + this.name()));
         return permissions;
     }
